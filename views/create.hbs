@@ -1,4 +1,9 @@
     <main>
+      {{#each error}}
+      <span class='error'>
+        <p>{{this}}</p>
+        </span>
+        {{/each}}
       <h1>Create</h1>
       <div class="form">
         <form action='/create' method="POST">

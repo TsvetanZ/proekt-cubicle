@@ -24,16 +24,30 @@ function getById(id) {
     return data.find(p => p.id == id)
 }
 
-async function create(name, description, difficultyLevel, imageUrl ) {
-    const id = 'asdf' + ('0000' + (Math.random()*9999 | 0)).slice(-4);
-    data.push({
-        id,
-        name,
-        difficultyLevel,
-        description,
-        imageUrl
-    })
+
+async function create(cubeData) {
+    const cube = {
+        id: getId(),
+        name: cubeData.name,
+        difficultyLevel:cubeData.difficultyLevel,
+        description: cubeData.descriptions,
+        imageUrl: cubeData.imageUrl
+    }
+    const missing = Object.entries(cube).filter(([k,v]) => !v)
+    if(missing.length > 0) {
+        throw new Error(missing.map(m => `${m[0]} is required`).join('\n'));
+    }
+    data.push(cube);
+    await persist();
+    return cube;
 }
+
+
+
+
+function getId() {
+    return 'asdf' + ('0000' + (Math.random()*9999 | 0)).slice(-4);
+ }
 
 module.exports = {
     getList,
