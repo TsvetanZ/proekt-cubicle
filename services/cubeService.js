@@ -15,7 +15,7 @@ async function create(cubeData) {
         name: cubeData.name,
         imageUrl: cubeData.imageUrl,
         difficultyLevel:cubeData.difficultyLevel,
-        descriptions: cubeData.descriptions,
+        descriptions: cubeData.description,
        
     }
     const missing = Object.entries(cube).filter(([k,s]) => !s)
