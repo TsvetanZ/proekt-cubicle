@@ -1,6 +1,6 @@
 const createController = require('express').Router();
 
-const {create } = require('../services/newCube')
+const {create } = require('../services/cubeService')
 
 createController.get('/', (req,res) =>{
     res.render('create', {
@@ -11,7 +11,8 @@ createController.get('/', (req,res) =>{
 createController.post('/', async(req, res) =>{
     try {
         const result = await create(req.body);
-         res.redirect('/details/'+ result.id);
+        console.log(req.body)
+         res.redirect('/details/'+ result._id);
     } catch (err) {
         res.render('create', {
             title:"Error",
