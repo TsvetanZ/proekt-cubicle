@@ -2,8 +2,8 @@ const { Schema, model, Types: {ObjectId} } = require('mongoose');
 
 const accessorySchema = new Schema ({
     name: {type: String, required: true},
-	imageUrl: {type:String, required: true, http/https validation},
-	description - {type:String, required:true, max length validation},
+	imageUrl: {type:String, required: true},
+	description:{type:String, required:true, max:300},
 	cubes: {type:[ObjectId], default: [], ref: 'Cube'}
 
 });
