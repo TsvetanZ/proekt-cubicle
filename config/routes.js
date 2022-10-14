@@ -1,5 +1,6 @@
 const accessoryController = require('../controller/accessoryController');
 const attachController = require('../controller/attachController');
+const authController = require('../controller/authController');
 const createController = require('../controller/createController');
 const detailController = require('../controller/detailsController');
 const errController = require('../controller/errController');
@@ -13,5 +14,8 @@ module.exports = (app) => {
     app.use('/details',detailController);
     app.use('/details',attachController);
     app.use('/create/accessory', accessoryController)
+    app.use('/auth', authController);
+
+
     app.all('*', errController);
 }
