@@ -6,6 +6,7 @@ const hbs = require ('express-handlebars').create({
 const cookieParser = require('cookie-parser');
 const defaultTitle = require('../middlewares/defaultTitle');
 const auth = require('../middlewares/auth');
+const userNav = require('../middlewares/userNav');
 
 const jwtSecret = '9s332nhjkjhgo';
 
@@ -18,6 +19,7 @@ module.exports = (app) => {
     app.use('/static', express.static('static')); // whith this where to be take static data(css, img and  etc.) and end  where from folder
     app.use(cookieParser());
     app.use(auth(jwtSecret));
+    app.use(userNav());
 
     app.use(defaultTitle('Proekt Cube')); // по този начин съсздваме default title;
 }
