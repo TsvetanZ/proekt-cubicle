@@ -229,6 +229,23 @@ span.error {
     display: block;
 }
 
+div.error {
+    animation: fadeOut 1s forwards;
+    animation-delay: 10s;
+    background: #EF5542;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: normal;
+    position: relative;
+    float: right;
+    margin-top: 20px;
+    overflow: hidden;
+    display: block;
+}
+
 img#sadFaceImg{
     display: block;
     margin: 0 auto;

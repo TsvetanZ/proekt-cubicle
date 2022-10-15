@@ -1,12 +1,21 @@
 <main>
     <h1>Register Form</h1>
+    {{#if error}}
+    <div class="error">
+        {{#each error}}
+        <p>{{this}}</p>
+        {{/each}}
+    </div>
+    {{/if}}
+
     <div class="form">
-        <form action="/auth/register" method="POST">
+        <form action="/auth/register" method="post">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" <label for="password">Password</label>
             <input type="password" id="password" name="password" <label for="repeatPassword">Re-Password</label>
-            <input type="password" id="repeatPassword" name="repeatPassword">
+            <input type="password" id="repass" name="repass">
             <input type="submit" value="Register">
         </form>
     </div>
+    <footer>Already have an account? <a href="/auth/login">Sign in here</a> </footer>
 </main>
