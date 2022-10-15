@@ -18,7 +18,7 @@ async function register(username, password){
     });
     // return user data
     return {
-        _id: user._id,
+        //_id: user._id,
         username,
         roles: user.roles
     }
@@ -36,6 +36,7 @@ async function login(username, password) {
     }
 
     return {
+        _id:user._id,
         username: user.username,
         rolea: user.roles
     };

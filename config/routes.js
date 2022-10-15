@@ -11,9 +11,9 @@ const { hasUser } = require('../middlewares/guard');
 
 module.exports = (app) => {
     app.use(homeController);
-    app.use('/create', hasUser(), createController);
+    app.use('/create', createController);// ('/create', hasUser(), createController);
     app.use('/details',detailController);
-    app.use('/details', hasUser(), attachController);
+    app.use('/details', attachController); // ('/details', hasUser(), attachController);
     app.use('/create/accessory', accessoryController)
     app.use('/auth', authController);
 

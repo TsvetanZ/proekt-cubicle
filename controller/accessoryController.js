@@ -12,7 +12,7 @@ accessoryController.get('/', async(req,res) =>{
 
 
 accessoryController.post('/', async(req, res) =>{
-    console.log(req.body)
+    console.log('EH:',req.body)
     try {
         //await createAccessory(req.body);
         await createAccessory(req.body.name, req.body.imageUrl, req.body.description);
