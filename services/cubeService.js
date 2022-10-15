@@ -15,12 +15,13 @@ function getByIdDetails (id) {
 }
 
 
-async function create(cubeData) {
+async function create(cubeData, ownerId) {
     const cube = {
         name: cubeData.name,
         imageUrl: cubeData.imageUrl,
         difficultyLevel:cubeData.difficultyLevel,
         descriptions: cubeData.description,
+        owner: ownerId
        
     }
     const missing = Object.entries(cube).filter(([k,s]) => !s)
