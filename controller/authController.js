@@ -11,7 +11,9 @@ authController.get('/login', (req,res)=> {
    // };
    // const token = jwt.sign(payload, jwtSecret, {expiresIn: '4h'}); //next time expirins 4h
    // res.cookie('jwt', token);
-    res.send("Here is your token")
+    res.render('loginPage', {
+        title:'Login Page'
+    })
 });
 
 authController.post('/login', async (req, res) =>{

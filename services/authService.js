@@ -1,5 +1,5 @@
 async function login(username, password) {
-    new Promise((res, rej) => {
+    return new Promise((res, rej) => {
         if(username.toLowerCase() == 'peter'&& password == '123'){
             res({
                 _id: '29vhjvhjv1515',
