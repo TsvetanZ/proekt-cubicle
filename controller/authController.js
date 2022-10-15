@@ -19,8 +19,14 @@ authController.get('/login', (req,res)=> {
 authController.post('/login', async (req, res) =>{
     const result = await login(req.body.username, req.body.password);
     const token = req.signJwt(result);
-    res.cookie('jwt', token);
+    res.cookie('jwt', token, {maxAge: 14500000});
     res.redirect('/');
+})
+
+authController.get('/register', (req, res) => {
+    res.render('registerPage', {
+        title:'Register Page'
+    })
 })
 
 
