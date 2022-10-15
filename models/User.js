@@ -10,6 +10,14 @@ const userSchema = new Schema({
     roles: {type: [roleSchema], default:['user'] }
 });
 
+userSchema.index ({username: 1}, {
+    unique: true,
+    collation: {
+        locale: 'en', // можем да използваме само англиски букви
+        strength: 2 // ниво на сравнение започва от 1 до 5
+    }
+})
+
 const User = model('User', userSchema);
 
 module.exports = User;

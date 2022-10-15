@@ -24,7 +24,7 @@ async function register(username, password){
 }
 
 async function login(username, password) {
-    const user = await User.findOne({username: { $regex: new RegExp(username) , $options: 'i'}});
+    const user = await User.findOne({username }).collation({ locale: 'en', strength:2}) // towa se zamenq { $regex: new RegExp(username) , $options: 'i'}});
     if(!user) {
         throw new Error('Incorrect username or password');
     }
